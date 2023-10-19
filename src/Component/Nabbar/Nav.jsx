@@ -53,6 +53,18 @@ const Nav = () => {
 
               <li>
                 <NavLink
+                  to="/addBrand"
+                  className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "active" : ""
+                  }
+                >
+                  Add Brand
+                </NavLink>
+                
+              </li>
+
+              <li>
+                <NavLink
                   to="/"
                   className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "active" : ""
@@ -103,6 +115,18 @@ const Nav = () => {
 
               <li>
                 <NavLink
+                  to="/add-brand"
+                  className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "active" : ""
+                  }
+                >
+                  Add Brand
+                </NavLink>
+                
+              </li>
+
+              <li>
+                <NavLink
                   to="/"
                   className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "active" : ""
@@ -113,6 +137,7 @@ const Nav = () => {
                 
               </li>
 
+      
              
             </ul>
           </div>
