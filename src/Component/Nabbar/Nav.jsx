@@ -143,7 +143,7 @@ const Nav = () => {
           </div>
           <div className="navbar-end text-white uppercase">
           
-                <Link to={'/'}>Login</Link>
+                <Link to={'/login'}>Login</Link>
               
           </div>
         </div>

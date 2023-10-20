@@ -11,6 +11,8 @@ import Product from "../Component/Product/Product";
 import ProductDetils from "../Component/Product/ProductDetils";
 import MyCart from "../Pages/MyCart/MyCart";
 import UpdateProduct from "../Pages/Update/UpdateProduct";
+import Login from "../Pages/Login/Login";
+import Registation from "../Pages/Registation/Registation";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +35,17 @@ const router = createBrowserRouter([
           path: "/add-brand",
           element: <AddBrands></AddBrands> 
       },
+
+      {
+        path: "/login",
+        element: <Login></Login>,   
+    },
+
+    {
+      path: "/registation",
+      element: <Registation></Registation>,   
+  },
+
 
       {
         path: "/products/:brandName",
