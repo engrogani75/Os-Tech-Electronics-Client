@@ -1,10 +1,34 @@
+import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 
 
 const MyCart = () => {
-   const myCartData = useLoaderData()
-   console.log(myCartData);
+   const cartList = useLoaderData()
+  //  console.log(myCartData);
 
+
+const [myCartData, setmyCartData] = useState(cartList)
+
+
+const deleteHandle = (_id) =>{
+  fetch(`http://localhost:5000/my-cart/${_id}`,{
+    method: 'DELETE'
+})
+  .then(res => res.json())
+  .then(data =>{
+    console.log(data);
+    if (data.deletedCount > 0) {
+       alert('Deleted Successfully')
+    }
+
+    const remaingCart = myCartData.filter(cartList => cartList._id !== _id)
+    setmyCartData(remaingCart)
+
+  })
+
+  
+   
+}
  
     return (
       <>
@@ -22,7 +46,7 @@ const MyCart = () => {
             </div>
            
             <div className="flex flex-col justify-between p-4 leading-normal">
-                <button className="mb-2 text-xl font-bold tracking-tight text-gray-900  dark:text-white bg-red-800 px-4 py-2">X</button>  
+                <button className="mb-2 text-xl font-bold tracking-tight text-gray-900  dark:text-white bg-red-800 px-4 py-2" onClick={() =>deleteHandle(cartItem._id)}>X</button>  
             </div>
            
         </div>

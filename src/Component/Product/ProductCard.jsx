@@ -15,7 +15,7 @@ const ProductCard = ({product}) => {
     <p className="text-red-700 font-bold mt-2">{price}</p>
     <p className='text-red-700 mb-4'>{rating}</p>
     <button className="mt-2 btn"><Link to={`/details/${_id}`}>Details</Link></button>
-    <button className=" mt-4 btn bg-orange-800">Update</button>
+    <Link to={`/update/${_id}`}><button className=" mt-4 btn bg-orange-800">Update</button></Link>
   </div>
 </div>
         </div>
