@@ -10,8 +10,25 @@ const ProductDetils = () => {
     const addToCardHandle = () =>{
         const image = Productdetails.image;
         const name = Productdetails.name;
-        const price = Productdetails.price;
-        console.log(image, name, price);
+        const priceString = Productdetails.price;
+        const price = parseInt(priceString)
+       const addToCardData = {image, name, price};
+       console.log(addToCardData);
+
+       fetch('http://localhost:5000/addtocart', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+          },
+          body:JSON.stringify(addToCardData)
+       })
+       .then(res => res.json())
+       .then(data => {
+        console.log(data);
+        if (data.insertedId) {
+            alert('your product add successfully')
+        }
+       })
 
 
     }
