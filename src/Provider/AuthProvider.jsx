@@ -18,6 +18,8 @@ const AuthProvider = ({children}) => {
 
     const creatUser = (email, password) =>{
         setLoder(true)
+
+        const updateUser =(name , photo)
        
         if (password.length < 6) {
             return setpasswordError('pls give at least six caracter')
@@ -63,6 +65,9 @@ const AuthProvider = ({children}) => {
     }
 
 
+  
+
+
     const logout = () =>{
         setLoder(true)
         signOut(auth)
@@ -75,7 +80,7 @@ const userInfo = {
     logInUser,
     loginWithGoogle,
     logout,
-    passwordError
+    passwordError,
 
 }
 

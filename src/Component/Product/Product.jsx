@@ -14,7 +14,7 @@ const Product = () => {
 
 
 
-        <div className="grid grid-cols-3 w-11/12 mx-auto">
+        <div className="grid md:grid-cols-3 w-11/12 gap-4 mx-auto my-6">
 
 
 

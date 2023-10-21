@@ -34,6 +34,11 @@ const Registation = () => {
             const result = res.user;
             console.log(result);
             const user = {name, photoUrl, email}
+
+          
+
+
+
             fetch('https://technology-electtronics-brandshop-serverside-project-r4jyjwz0o.vercel.app/users', {
     
             method: 'POST',

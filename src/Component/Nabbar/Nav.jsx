@@ -1,11 +1,14 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContex } from "../../Provider/AuthProvider";
+import { getAuth } from "firebase/auth";
 
 
 const Nav = () => {
 
   const {user, logout} = useContext(AuthContex)
+
+ 
 
   const logoutHandle = () =>{
     logout()
@@ -59,7 +62,7 @@ const Nav = () => {
 
               <li>
                 <NavLink
-                  to="/"
+                  to="/add-product"
                   className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "active" : ""
                   }
@@ -83,7 +86,7 @@ const Nav = () => {
 
               <li>
                 <NavLink
-                  to="/"
+                  to="/my-cart"
                   className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "active" : ""
                   }
@@ -101,7 +104,7 @@ const Nav = () => {
               alt="Logo"
             />
 
-            <a className="normal-case text-sm md:text-xl lg:text-2xl ml-4">
+            <a className="normal-case text-sm md:text-xl lg:text-2xl ml-4 text-white">
               Os Tech & Electronics
             </a>
           </div>
@@ -167,7 +170,7 @@ const Nav = () => {
                 <a onClick={logoutHandle} href="#" className="text-sm md:text-xl ml-4 text-red-800">Log Out</a> 
                 </>: <>
                 <Link to={"/login"}>
-                  <button className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500">
+                  <button className="font-medium text-2xl text-white hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500">
                     Login</button>
                     </Link>
                 </>

@@ -1,4 +1,4 @@
-
+import Swal from 'sweetalert2'
 
 const AddProduct = () => {
 
@@ -28,7 +28,11 @@ const AddProduct = () => {
     .then(data => {
       console.log(data);
       if (data.insertedId) {
-        alert('the product added successfully')
+        Swal.fire({
+          icon: 'success',
+          title: 'added',
+          text: 'Product add has been sucessfully',
+        })
         form.reset()
       }
     })
@@ -100,7 +104,7 @@ const AddProduct = () => {
            </div>
         
           <div className="form-control mt-6">
-            <input type="submit" className="btn btn-success"/>
+            <input type="submit" value='add product' className="btn btn-success"/>
           </div>
         </form>
       </div>
