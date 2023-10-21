@@ -11,7 +11,7 @@ const [myCartData, setmyCartData] = useState(cartList)
 
 
 const deleteHandle = (_id) =>{
-  fetch(`http://localhost:5000/my-cart/${_id}`,{
+  fetch(`https://technology-electtronics-brandshop-serverside-project-r4jyjwz0o.vercel.app/my-cart/${_id}`,{
     method: 'DELETE'
 })
   .then(res => res.json())

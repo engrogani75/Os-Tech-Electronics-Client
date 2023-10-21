@@ -1,6 +1,9 @@
 
 
+
 const AddBrands = () => {
+
+ 
 
     const addBrandHadle = (event) => {
         event.preventDefault()
@@ -9,7 +12,10 @@ const AddBrands = () => {
         const brandName = form.brandName.value;
         const brands = {image, brandName}
 
-         fetch('http://localhost:5000/brands', {
+    
+   
+
+         fetch('https://technology-electtronics-brandshop-serverside-project-r4jyjwz0o.vercel.app/brands', {
   
       method: 'POST',
       headers: {
@@ -19,7 +25,7 @@ const AddBrands = () => {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data);
+      // console.log(data);
       if (data.insertedId) {
         alert('the product added successfully')
         form.reset()

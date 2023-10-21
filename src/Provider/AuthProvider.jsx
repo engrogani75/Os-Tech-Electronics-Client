@@ -1,10 +1,12 @@
-import { createContext, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 import app from "../Firebase/firebase.config"
-import { createUserWithEmailAndPassword, getAuth, sendSignInLinkToEmail } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendSignInLinkToEmail, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import PropTypes from 'prop-types';
 
 export const AuthContex = createContext(null)
 const auth = getAuth(app)
+
+const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({children}) => {
 
@@ -14,8 +16,9 @@ const AuthProvider = ({children}) => {
 
     const [passwordError, setpasswordError] = useState(null)
 
-    const creatUser = (eamil, password) =>{
+    const creatUser = (email, password) =>{
         setLoder(true)
+       
         if (password.length < 6) {
             return setpasswordError('pls give at least six caracter')
         }
@@ -36,10 +39,42 @@ const AuthProvider = ({children}) => {
      }
     }
 
+    const logInUser = (email, password) =>{
+        setLoder(true)
+        return signInWithEmailAndPassword(auth, email, password)
+    }
+
+    useEffect(() =>{
+        const unsubscrive = onAuthStateChanged(auth, (currentUser) =>{
+               setUser(currentUser)  
+               setLoder(false) 
+               
+        })
+    
+        return () =>{
+            unsubscrive();
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
+
+
+    const loginWithGoogle = () =>{
+        return signInWithPopup(auth, googleProvider)
+    }
+
+
+    const logout = () =>{
+        setLoder(true)
+        signOut(auth)
+    }
+
 const userInfo = {
     user,
     loader,
     creatUser,
+    logInUser,
+    loginWithGoogle,
+    logout,
     passwordError
 
 }

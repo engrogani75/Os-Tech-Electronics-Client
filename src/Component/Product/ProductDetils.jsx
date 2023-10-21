@@ -15,7 +15,7 @@ const ProductDetils = () => {
        const addToCardData = {image, name, price};
        console.log(addToCardData);
 
-       fetch('http://localhost:5000/addtocart', {
+       fetch('https://technology-electtronics-brandshop-serverside-project-r4jyjwz0o.vercel.app/addtocart', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'

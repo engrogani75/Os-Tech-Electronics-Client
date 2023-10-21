@@ -13,6 +13,7 @@ import MyCart from "../Pages/MyCart/MyCart";
 import UpdateProduct from "../Pages/Update/UpdateProduct";
 import Login from "../Pages/Login/Login";
 import Registation from "../Pages/Registation/Registation";
+import PrivaterRouter from "./PrivaterRouter";
 
 const router = createBrowserRouter([
     {
@@ -23,17 +24,17 @@ const router = createBrowserRouter([
         {
             path: "/",
             element: <Home></Home>,
-            loader: () => fetch('http://localhost:5000/brands') 
+            loader: () => fetch('https://technology-electtronics-brandshop-serverside-project-r4jyjwz0o.vercel.app/brands') 
         },
 
         {
             path: "/add-product",
-            element: <AddProduct></AddProduct>,   
+            element: <PrivaterRouter><AddProduct></AddProduct></PrivaterRouter>,   
         },
 
         {
           path: "/add-brand",
-          element: <AddBrands></AddBrands> 
+          element: <PrivaterRouter><AddProduct></AddProduct></PrivaterRouter>
       },
 
       {
@@ -50,27 +51,27 @@ const router = createBrowserRouter([
       {
         path: "/products/:brandName",
         element:  <Product></Product>,
-        loader: ({params}) => fetch(`http://localhost:5000/brands/${params.brandName}`)
+        loader: ({params}) => fetch(`https://technology-electtronics-brandshop-serverside-project-r4jyjwz0o.vercel.app/brands/${params.brandName}`)
     },
 
     {
       path: "/details/:id",
-      element:  <ProductDetils></ProductDetils>,
-      loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`)
+      element:  <PrivaterRouter><ProductDetils></ProductDetils></PrivaterRouter>,
+      loader: ({params}) => fetch(`https://technology-electtronics-brandshop-serverside-project-r4jyjwz0o.vercel.app/product/${params.id}`)
     
   },
 
   {
     path: "/my-cart",
-    element: <MyCart></MyCart>,
-    loader: () => fetch('http://localhost:5000/my-cart')
+    element: <PrivaterRouter><MyCart></MyCart></PrivaterRouter>,
+    loader: () => fetch('https://technology-electtronics-brandshop-serverside-project-r4jyjwz0o.vercel.app/my-cart')
 
 },
 
 {
   path: "/update/:id",
-  element: <UpdateProduct></UpdateProduct>,  
-  loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`)
+  element: <PrivaterRouter><UpdateProduct></UpdateProduct></PrivaterRouter>,  
+  loader: ({params}) => fetch(`https://technology-electtronics-brandshop-serverside-project-r4jyjwz0o.vercel.app/product/${params.id}`)
 },
 
 

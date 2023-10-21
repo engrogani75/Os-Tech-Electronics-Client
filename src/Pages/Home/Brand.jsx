@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Brand = ({brands}) => {
-    console.log(brands);
+    // console.log(brands);
     return (
        
           <>

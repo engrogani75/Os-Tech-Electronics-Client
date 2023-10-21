@@ -1,33 +1,81 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate} from "react-router-dom";
 import { AuthContex } from "../../Provider/AuthProvider";
 import { useContext } from "react";
-
+import Swal from 'sweetalert2'
 
 const Registation = () => {
 
-    const {creatUser} = useContext(AuthContex)
-   
+  
+
+  const {user, creatUser, passwordError} = useContext(AuthContex)
+  // const navigate = useNavigate(); 
+
+  // const location = useLocation()
+
+  
+
+  
 
 
     const registationHandle = (e) =>{
    
         e.preventDefault();
-        const formData = new FormData(e.currentTarget)
-        const name = formData.get('name')
-        const photoUrl = formData.get('photo')
-        const email = formData.get('email')
-        const password = formData.get('password')
+        const form = e.target;
+        const name = form.name.value
+        const photoUrl = form.photo.value
+        const email = form.email.value
+        const password = form.password.value
         console.log(name, photoUrl, email, password)
+        
 
-        creatUser(email, password)
-        .then(res => {
-            console.log(res);
-        })
+        if (creatUser) {
+          creatUser(email, password)
+          .then(res =>{
+            const result = res.user;
+            console.log(result);
+            const user = {name, photoUrl, email}
+            fetch('https://technology-electtronics-brandshop-serverside-project-r4jyjwz0o.vercel.app/users', {
+    
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json'
+            },
+            body:JSON.stringify(user)
+          })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+            if (data.insertedId) {
+              Swal.fire({
+                icon: 'success',
+                title: 'Your registation',
+                text: 'Your resgistation has been sucessfully',
+              })
+  
+             
+            }
+          })
+           
+        
+          })
+          .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          Swal.fire({
+            icon: 'error',
+            title: {errorCode },
+            text: {errorMessage}
+  
+          })
+       
+          });
+        }
 
-        .catch(error =>{
-            console.error(error);
-        })
 
+
+
+
+       
     }
 
 
@@ -63,10 +111,10 @@ const Registation = () => {
           <button className="btn btn-primary">Registaion</button>
         </div>
 
-        {/* {
-          !user ? <h1 className="text-xl text-red-900 text-bold">{passwordError}</h1>: navigate(location?.state? location.state : '/')
+        {
+          !user ? <h1 className="text-xl text-red-900 text-bold">{passwordError}</h1>: <Navigate to="/" replace={true}></Navigate>
 
-        } */}
+        }
 
 
         <p className="pb-4">already registation! <span className="text-green-700 text-xl"><Link to={'/login'}>Login</Link></span></p>
