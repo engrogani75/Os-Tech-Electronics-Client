@@ -1,17 +1,19 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData} from "react-router-dom";
+
 
 
 const MyCart = () => {
+
+  
    const cartList = useLoaderData()
-  //  console.log(myCartData);
 
 
 const [myCartData, setmyCartData] = useState(cartList)
 
 
 const deleteHandle = (_id) =>{
-  fetch(`https://technology-electtronics-brandshop-serverside-project-r4jyjwz0o.vercel.app/my-cart/${_id}`,{
+  fetch(`https://technology-electtronics-brandshop-serverside-project-f0cv0tmg7.vercel.app/my-cart/${_id}`,{
     method: 'DELETE'
 })
   .then(res => res.json())
@@ -24,9 +26,7 @@ const deleteHandle = (_id) =>{
     const remaingCart = myCartData.filter(cartList => cartList._id !== _id)
     setmyCartData(remaingCart)
 
-  })
-
-  
+  }) 
    
 }
  

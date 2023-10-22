@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContex } from "../../Provider/AuthProvider";
-import { getAuth } from "firebase/auth";
+
 
 
 const Nav = () => {
@@ -166,11 +166,12 @@ const Nav = () => {
           
           {
                 user ? <>
-                <span className="text-sm md:text-xl">{user.email}</span>
+                <div><img src={user.photoURL} className="h-10 w-10 rounded-full mr-2" alt="" /></div>
+                <span className="text-sm md:text-xl">{user.displayName}</span>
                 <a onClick={logoutHandle} href="#" className="text-sm md:text-xl ml-4 text-red-800">Log Out</a> 
                 </>: <>
                 <Link to={"/login"}>
-                  <button className="font-medium text-2xl text-white hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500">
+                  <button className="font-medium text-2xl text-white hover:text-gray-400">
                     Login</button>
                     </Link>
                 </>

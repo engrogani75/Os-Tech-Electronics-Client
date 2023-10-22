@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react";
+
 import { useLoaderData, useParams } from "react-router-dom";
+import { AuthContex } from "../../Provider/AuthProvider";
 
 
 const ProductDetils = () => {
+
+
     const Productdetails = useLoaderData()
     
     const {_id, image, name, brandName, type, price, shortDescription, rating} = Productdetails || [];
@@ -15,7 +18,7 @@ const ProductDetils = () => {
        const addToCardData = {image, name, price};
        console.log(addToCardData);
 
-       fetch('https://technology-electtronics-brandshop-serverside-project-r4jyjwz0o.vercel.app/addtocart', {
+       fetch('https://technology-electtronics-brandshop-serverside-project-f0cv0tmg7.vercel.app/addtocart', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'

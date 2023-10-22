@@ -24,7 +24,7 @@ const router = createBrowserRouter([
         {
             path: "/",
             element: <Home></Home>,
-            loader: () => fetch('https://technology-electtronics-brandshop-serverside-project-r4jyjwz0o.vercel.app/brands') 
+            loader: () => fetch('https://technology-electtronics-brandshop-serverside-project-f0cv0tmg7.vercel.app/brands') 
         },
 
         {
@@ -51,27 +51,26 @@ const router = createBrowserRouter([
       {
         path: "/products/:brandName",
         element:  <Product></Product>,
-        loader: ({params}) => fetch(`https://technology-electtronics-brandshop-serverside-project-r4jyjwz0o.vercel.app/brands/${params.brandName}`)
+        loader: ({params}) => fetch(`https://technology-electtronics-brandshop-serverside-project-f0cv0tmg7.vercel.app/brands/${params.brandName}`)
     },
 
     {
       path: "/details/:id",
       element:  <PrivaterRouter><ProductDetils></ProductDetils></PrivaterRouter>,
-      loader: ({params}) => fetch(`https://technology-electtronics-brandshop-serverside-project-r4jyjwz0o.vercel.app/product/${params.id}`)
+      loader: ({params}) => fetch(`https://technology-electtronics-brandshop-serverside-project-f0cv0tmg7.vercel.app/product/${params.id}`)
     
   },
 
   {
     path: "/my-cart",
     element: <PrivaterRouter><MyCart></MyCart></PrivaterRouter>,
-    loader: () => fetch('https://technology-electtronics-brandshop-serverside-project-r4jyjwz0o.vercel.app/my-cart')
-
+    loader: () => fetch('https://technology-electtronics-brandshop-serverside-project-f0cv0tmg7.vercel.app/my-cart')
 },
 
 {
   path: "/update/:id",
   element: <PrivaterRouter><UpdateProduct></UpdateProduct></PrivaterRouter>,  
-  loader: ({params}) => fetch(`https://technology-electtronics-brandshop-serverside-project-r4jyjwz0o.vercel.app/product/${params.id}`)
+  loader: ({params}) => fetch(`https://technology-electtronics-brandshop-serverside-project-f0cv0tmg7.vercel.app/product/${params.id}`)
 },
 
 

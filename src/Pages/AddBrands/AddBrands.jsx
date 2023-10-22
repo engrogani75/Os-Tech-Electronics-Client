@@ -15,7 +15,7 @@ const AddBrands = () => {
     
    
 
-         fetch('https://technology-electtronics-brandshop-serverside-project-r4jyjwz0o.vercel.app/brands', {
+         fetch('https://technology-electtronics-brandshop-serverside-project-f0cv0tmg7.vercel.app/brands', {
   
       method: 'POST',
       headers: {

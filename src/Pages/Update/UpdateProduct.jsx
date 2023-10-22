@@ -22,7 +22,7 @@ const updateHandle =(event) =>{
 
     console.log(updateProductList);
 
-    fetch(`https://technology-electtronics-brandshop-serverside-project-r4jyjwz0o.vercel.app/update/${updateItem._id}`, {
+    fetch(`https://technology-electtronics-brandshop-serverside-project-f0cv0tmg7.vercel.app/update/${updateItem._id}`, {
         method: 'PUT',
         headers:{
             'content-type': 'application/json',

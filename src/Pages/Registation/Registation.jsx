@@ -2,6 +2,7 @@ import { Link, Navigate, useLocation, useNavigate} from "react-router-dom";
 import { AuthContex } from "../../Provider/AuthProvider";
 import { useContext } from "react";
 import Swal from 'sweetalert2'
+import { updateProfile } from "firebase/auth";
 
 const Registation = () => {
 
@@ -28,18 +29,27 @@ const Registation = () => {
         console.log(name, photoUrl, email, password)
         
 
-        if (creatUser) {
           creatUser(email, password)
           .then(res =>{
             const result = res.user;
             console.log(result);
+             
+
+            updateProfile(result, {
+              displayName: name,
+              photoURL: photoUrl
+
+            })
+            .then(() => console.log('profile name has been displayed'))
+            .catch()
+
+
             const user = {name, photoUrl, email}
 
-          
 
 
 
-            fetch('https://technology-electtronics-brandshop-serverside-project-r4jyjwz0o.vercel.app/users', {
+            fetch('https://technology-electtronics-brandshop-serverside-project-f0cv0tmg7.vercel.app/users', {
     
             method: 'POST',
             headers: {
@@ -74,7 +84,10 @@ const Registation = () => {
           })
        
           });
-        }
+        
+
+
+
 
 
 
@@ -130,3 +143,5 @@ const Registation = () => {
 }
 
 export default Registation
+
+
