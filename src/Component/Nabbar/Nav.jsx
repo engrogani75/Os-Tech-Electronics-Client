@@ -27,28 +27,12 @@ const Nav = () => {
       <div>
         <div className="navbar bg-[#0f0a07] w-11/12 mx-auto">
           <div className="navbar-start">
-            <div className="dropdown">
-              <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h8m-8 6h16"
-                  />
-                </svg>
-              </label>
-              <ul
-                tabIndex={0}
-                className=" menu-sm dropdown-content w-56 mt-2 text-3xl"
-              >
-               <li>
+          <div className="dropdown">
+      <label tabIndex={0} className="btn btn-ghost lg:hidden btn-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+      </label>
+      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow text-white bg-[#0f0a07] rounded-box w-80">
+      <li>
                 <NavLink
                   to="/"
                   className={({ isActive, isPending }) =>
@@ -59,7 +43,6 @@ const Nav = () => {
                 </NavLink>
                 
               </li>
-
               <li>
                 <NavLink
                   to="/add-product"
@@ -71,10 +54,9 @@ const Nav = () => {
                 </NavLink>
                 
               </li>
-
               <li>
                 <NavLink
-                  to="/addBrand"
+                  to="/add-brand"
                   className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "active" : ""
                   }
@@ -83,7 +65,6 @@ const Nav = () => {
                 </NavLink>
                 
               </li>
-
               <li>
                 <NavLink
                   to="/my-cart"
@@ -95,8 +76,9 @@ const Nav = () => {
                 </NavLink>
                 
               </li>
-              </ul>
-            </div>
+       
+      </ul>
+    </div>
 
             <img
               className="w-10 h-10 rounded-full"
@@ -166,9 +148,9 @@ const Nav = () => {
           
           {
                 user ? <>
-                <div><img src={user.photoURL} className="h-10 w-10 rounded-full mr-2" alt="" /></div>
-                <span className="text-sm md:text-xl">{user.displayName}</span>
-                <a onClick={logoutHandle} href="#" className="text-sm md:text-xl ml-4 text-red-800">Log Out</a> 
+                <div><img src={user.photoURL} className=" h-5 w-5 md:h-10 md:w-10 rounded-full mr-2" alt="" /></div>
+                <span className="text-[11px] md:text-xl">{user.displayName}</span>
+                <a onClick={logoutHandle} href="#" className="text-[11px] md:text-xl ml-4 text-white font-bold hover:text-gray-400">Log Out</a> 
                 </>: <>
                 <Link to={"/login"}>
                   <button className="font-medium text-2xl text-white hover:text-gray-400">

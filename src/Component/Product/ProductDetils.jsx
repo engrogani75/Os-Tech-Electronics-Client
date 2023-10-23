@@ -1,24 +1,33 @@
 
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData} from "react-router-dom";
 import { AuthContex } from "../../Provider/AuthProvider";
+import { useContext } from "react";
 
 
 const ProductDetils = () => {
 
+  const {user} = useContext(AuthContex)
+
+  
+
 
     const Productdetails = useLoaderData()
+
+  
     
     const {_id, image, name, brandName, type, price, shortDescription, rating} = Productdetails || [];
  
-    const addToCardHandle = () =>{
+    const addToCardHandle = (email) =>{
         const image = Productdetails.image;
         const name = Productdetails.name;
         const priceString = Productdetails.price;
         const price = parseInt(priceString)
        const addToCardData = {image, name, price};
        console.log(addToCardData);
+       console.log(email);
 
-       fetch('https://technology-electtronics-brandshop-serverside-project-f0cv0tmg7.vercel.app/addtocart', {
+       if (email) {
+        fetch('https://technology-electtronics-brandshop-serverside-project-f0cv0tmg7.vercel.app/addtocart', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -32,9 +41,13 @@ const ProductDetils = () => {
             alert('your product add successfully')
         }
        })
+       } 
 
+     
 
     }
+
+
  
     return (
         <div className="mt-4">
@@ -51,7 +64,7 @@ const ProductDetils = () => {
       <div className="badge badge-outline">{type}</div>
     </div>
     <p>Price: BDT <span className="text-red-700 font-bold">{price}</span></p>
-    <button className="bg-orange-600 px-4 py-2 text-white rounded-xl" onClick={addToCardHandle}>Add to Cart</button>
+    <button className="bg-orange-600 px-4 py-2 text-white rounded-xl" onClick={() =>addToCardHandle(user.email)}>Add to Cart</button>
   </div>
 </div>
         </div>

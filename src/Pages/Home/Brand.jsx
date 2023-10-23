@@ -7,7 +7,7 @@ const Brand = ({brands}) => {
        
           <>
           <h2 className='text-center text-2xl font-bold my-6 underline'>Our Brands</h2>
-              <div className='grid  lg:grid-cols-3 mx-auto w-11/12 gap-3 items-center'>
+              <div className='grid md:grid-cols-2 lg:grid-cols-3 mx-auto w-11/12 gap-3 items-center'>
       
       {
       brands.map(item => 

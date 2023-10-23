@@ -14,6 +14,7 @@ import UpdateProduct from "../Pages/Update/UpdateProduct";
 import Login from "../Pages/Login/Login";
 import Registation from "../Pages/Registation/Registation";
 import PrivaterRouter from "./PrivaterRouter";
+import Users from "../Component/Users/Users";
 
 const router = createBrowserRouter([
     {
@@ -58,8 +59,13 @@ const router = createBrowserRouter([
       path: "/details/:id",
       element:  <PrivaterRouter><ProductDetils></ProductDetils></PrivaterRouter>,
       loader: ({params}) => fetch(`https://technology-electtronics-brandshop-serverside-project-f0cv0tmg7.vercel.app/product/${params.id}`)
-    
   },
+
+  {
+    path: "/users/:email",
+    element:  <PrivaterRouter><Users></Users></PrivaterRouter>,
+    loader: ({params}) => fetch(`https://technology-electtronics-brandshop-serverside-project-f0cv0tmg7.vercel.app/users/${params.email}`)
+},
 
   {
     path: "/my-cart",

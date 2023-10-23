@@ -13,7 +13,7 @@ const NewArrival = () => {
 
         <>
         <h2 className="text-3xl my-6 text-center underline">New Arrival</h2>
-        <div className="mt-4 w-11/12 mx-auto grid lg:grid-cols-4 gap-4">
+        <div className="mt-4 w-11/12 mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-4">
            
             
 <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mt-4" data-aos="zoom-in">

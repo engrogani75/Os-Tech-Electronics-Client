@@ -4,12 +4,12 @@ const Customer = () => {
     return (
      <>
      <h2 className="text-3xl text-center my-4 font-bold">Happy Clients</h2>
-      <div className="my-4 w-11/12 mx-auto grid lg:grid-cols-4 gap-4">
+      <div className="my-4 w-11/12 mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="card bg-base-100 shadow-xl image-full">
         <figure><img src="https://i.ibb.co/NVmHZp1/news2.jpg" alt="Shoes" /></figure>
         <div className="card-body">
           <h2 className="card-title">Mr Alfredo</h2>
-          <p>"I've been shopping with this e-commerce site for years, 
+          <p>I ve been shopping with this e-commerce site for years, 
             and they never disappoint. The customer service is top-notch, and the products are always as described. A five-star experience!" </p>
         </div>
       </div>
