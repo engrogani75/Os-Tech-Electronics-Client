@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 
 const ProductCard = ({product}) => {
 
-    const {_id, image, name, brandName, type, price, shortDescription, rating} = product
+ 
+
+    const {_id, image, name, brandName, type, price, shortDescription, rating} = product || []
+
+    
     return (
         <div>
             <div className="card py-4 justify-center items-center bg-base-100 shadow-xl">

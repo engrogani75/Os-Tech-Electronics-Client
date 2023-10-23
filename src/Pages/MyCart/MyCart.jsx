@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLoaderData} from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 
@@ -13,14 +14,18 @@ const [myCartData, setmyCartData] = useState(cartList)
 
 
 const deleteHandle = (_id) =>{
-  fetch(`https://technology-electtronics-brandshop-serverside-project-f0cv0tmg7.vercel.app/my-cart/${_id}`,{
+  fetch(`https://technology-electtronics-brandshop-serverside-project-3rjin045p.vercel.app/my-cart/${_id}`,{
     method: 'DELETE'
 })
   .then(res => res.json())
   .then(data =>{
     console.log(data);
     if (data.deletedCount > 0) {
-       alert('Deleted Successfully')
+      Swal.fire({
+        icon: 'error',
+        title: 'Cart deleted',
+        text: 'Your product has been deleted',
+      })
     }
 
     const remaingCart = myCartData.filter(cartList => cartList._id !== _id)

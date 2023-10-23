@@ -3,14 +3,16 @@ import PropTypes from 'prop-types';
 const ProductSlider = ({product}) => {
 
 
-const imgUrl = product[0].image;
-const imgUrl2 =  product[1].image;
+
+
+const imgUrl = product[0]?.image
+const imgUrl2 =  product[1]?.image
 
 
     return (
       
          <div>
-                      <div className="carousel w-full">
+            <div className="carousel w-full">
   <div id="slide1" className="carousel-item relative w-full">
     <img src={imgUrl } className="w-11/12 mx-auto h-[600px] object-cover" />
     <div className="absolute flex justify-between transform -translate-y-1/2 left-16 right-16 top-1/2">

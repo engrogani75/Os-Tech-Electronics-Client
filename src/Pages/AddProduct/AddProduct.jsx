@@ -16,7 +16,7 @@ const AddProduct = () => {
     console.log(product);
   
   
-    fetch('https://technology-electtronics-brandshop-serverside-project-f0cv0tmg7.vercel.app/product', {
+    fetch('https://technology-electtronics-brandshop-serverside-project-3rjin045p.vercel.app/product', {
   
       method: 'POST',
       headers: {

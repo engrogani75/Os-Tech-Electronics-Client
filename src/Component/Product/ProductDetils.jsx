@@ -2,6 +2,7 @@
 import { useLoaderData} from "react-router-dom";
 import { AuthContex } from "../../Provider/AuthProvider";
 import { useContext } from "react";
+import Swal from 'sweetalert2'
 
 
 const ProductDetils = () => {
@@ -27,7 +28,7 @@ const ProductDetils = () => {
        console.log(email);
 
        if (email) {
-        fetch('https://technology-electtronics-brandshop-serverside-project-f0cv0tmg7.vercel.app/addtocart', {
+        fetch('https://technology-electtronics-brandshop-serverside-project-3rjin045p.vercel.app/addtocart', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -38,7 +39,11 @@ const ProductDetils = () => {
        .then(data => {
         console.log(data);
         if (data.insertedId) {
-            alert('your product add successfully')
+          Swal.fire({
+            icon: 'success',
+            title: 'Cart added',
+            text: 'Your product has been added',
+          })
         }
        })
        } 
@@ -52,7 +57,7 @@ const ProductDetils = () => {
     return (
         <div className="mt-4">
             <div className="card w-full bg-base-100 shadow-xl">
-  <figure><img src={image} alt="Shoes" /></figure>
+  <figure><img src={image} className="h-96" alt="Shoes" /></figure>
   <div className="card-body justify-center items-center">
     <h2 className="card-title">
       {name}

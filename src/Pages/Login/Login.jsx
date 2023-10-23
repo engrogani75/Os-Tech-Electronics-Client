@@ -34,7 +34,7 @@ const Login = () => {
           Swal.fire({
             icon: 'error',
             title: 'Does not mach',
-            text: "your password does not match"
+            text: "your password or email does not match"
 
           })
        
