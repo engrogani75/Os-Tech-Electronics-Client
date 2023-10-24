@@ -23,8 +23,8 @@ const deleteHandle = (_id) =>{
     if (data.deletedCount > 0) {
       Swal.fire({
         icon: 'error',
-        title: 'Cart deleted',
-        text: 'Your product has been deleted',
+        title: 'Cart Deleted',
+        text: 'Your Cart has been deleted',
       })
     }
 

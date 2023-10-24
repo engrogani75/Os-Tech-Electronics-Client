@@ -1,12 +1,26 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContex } from "../../Provider/AuthProvider";
+import { CiDark } from 'react-icons/ci';
+import { MdDarkMode } from 'react-icons/md';
+
 
 
 
 const Nav = () => {
 
   const {user, logout} = useContext(AuthContex)
+
+const [mode, setMode] = useState('')
+
+  function chageTheme (newTheme) {
+
+      const html = document.documentElement
+      html.setAttribute('data-theme', newTheme)
+      setMode(newTheme)
+  }
+
+  
 
  
 
@@ -66,6 +80,8 @@ const Nav = () => {
                 </NavLink>
                 
               </li>
+
+              
        
       </ul>
     </div>
@@ -120,6 +136,19 @@ const Nav = () => {
                 
               </li>
 
+              <li>
+
+                {
+                  mode == 'light' ?   <button onClick={() => chageTheme('dark')}><MdDarkMode/></button> :  <button onClick={() => chageTheme('light')}><CiDark /></button>
+                } 
+
+
+              
+             
+              
+              
+              </li>
+             
       
              
             </ul>
@@ -129,8 +158,8 @@ const Nav = () => {
           {
                 user ? <>
                 <div><img src={user.photoURL} className=" h-5 w-5 md:h-10 md:w-10 rounded-full mr-2" alt="" /></div>
-                <span className="text-[11px] md:text-xl">{user.displayName}</span>
-                <a onClick={logoutHandle} href="#" className="text-[11px] md:text-xl ml-4 text-white font-bold hover:text-gray-400">Log Out</a> 
+                <span className="text-[11px] lg:text-xl">{user.displayName}</span>
+                <a onClick={logoutHandle} href="#" className="text-[11px] lg:text-xl ml-4 text-white font-bold hover:text-gray-400">Log Out</a> 
                 </>: <>
                 <Link to={"/login"}>
                   <button className="font-medium text-2xl text-white hover:text-gray-400">
