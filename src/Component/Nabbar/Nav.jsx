@@ -11,7 +11,7 @@ const Nav = () => {
 
   const {user, logout} = useContext(AuthContex)
 
-const [mode, setMode] = useState('')
+const [mode, setMode] = useState('light')
 
   function chageTheme (newTheme) {
 
